@@ -1,0 +1,108 @@
+// Checkout width: min-content/max-content
+
+PARENT PROPERTIES:
+display: flex
+When we apply display flex property:
+- All items becomes flex-items from (block/inline) items.
+- After applying display flex property we try to override flex-items with 
+  display block/inline it won't work.
+
+flex-wrap: wrap;
+- It stops the overflow, and allows to wrap the flex-item onto the next line on reducing the screen-size.
+- In this each row is treated differently. flex-item takes space individually on each row on wrap.
+
+gap: 2px;
+- It gives gap b/w flex-items.
+
+flex-direction: row (default);
+- There are two types of axis: 
+   - Main axis 
+   - Cross axis
+- It changes the direction of main axis.
+Note: One use case is for mobile view we can use flex-direction: column, but we can change
+    it to row for larger screen sizes using media queries.
+
+
+Main Axis: 
+justify-content: flex-start (default);
+- This will only work if there is extra left over space.   
+- This will move the content on main-axis.
+
+Note:
+- Problems with justify-content:
+  - If extra space is not there it won't work.
+  - It won't work if flex-grow is on. It will take all the space.
+  - If we will change the height then we will need to give height spcae.
+
+
+Cross Axis:
+align-items: stretch  (default);
+- This will only work if there is extra left over space.   
+- This will move the content on cross-axis.
+- We can work on single item individually (property on child).
+  align-self: flex-start;
+- There is one property called align-content (check if needed).  
+
+
+Note: 
+align-items: Working on items individually. No other items up and down.
+justify-content: Working on line of items(content).
+
+
+
+
+
+CHILDREN PROPERTIES:
+
+Flex-shrink:
+- By default flex-shrink property is on. It is applied on flex-items.
+  - 0 - off, 1 - on  
+- Flex shrink is responsible for wrapping of content when we adjust the screen-size. 
+Note: When 
+    - flex-shrink: 1 (default) - Our nav-bar elements will keep shrinking until the started to overflow on 
+      reducing the screen size.
+    - flex-shrink: 0 - Our nav-bar element won't shrink. They will directly overflow on reducing the screen
+      size.  
+
+     
+Flex-grow:
+- By default flex-grow property is off. It is applied on flex-items.
+  - 0 - off, 1 - on       
+Note: When, 
+    - flex-grow: 0 (default) - Our flex-items won't grow.
+    - flex-grow: 1 - Our flex-items will grow and take up the remaining space of parent element.
+      The space will be divided automatically and equally.
+    - We can also provide the property individually for flex-item to provide the extra space in ratio unti
+      for particular flex-item.
+    - When we use flex-grow, elements will shrink on reducing screen-size.     
+
+
+Flex-basis:
+- Flex-basis can be said as similar to width of flex-item.
+- By default - flex-basis: auto.
+- To identify difference between flex-basis vs width:
+    flex-basis: 0px;  // will set to min content intrisic size
+    width: 0px;       // will set to 0
+ 
+
+
+NOTES: 
+Problems with flexbox: 
+- When we use flex-box we can create columns, but columns are not-divided into same size for proper layout
+  they are sized according to the content inside them.
+- To overcome this problem we can provide property =  flex: 1  
+
+Flex shorthand property:
+- flex: flex-grow flex-shrink flex-basis
+- for flex: 1   (it changes grow and basis)
+    flex: 1  1  0  
+
+                    flex-grow: 1;
+- flex: 1;  ===     flex-shrink: 1;
+                    flex-basis: 0; 
+
+- One more way to do this is set:
+  width: 100%  or  flex-basis: 100%
+- Reason behind these properties are working because flex-shrink: 1 is on.
+  If we will off it then each item will take size of its parent.
+Note: If padding or margin are not same, then they can create problems in acheiving same size.                          

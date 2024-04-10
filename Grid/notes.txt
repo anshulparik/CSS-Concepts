@@ -1,0 +1,34 @@
+= We need to apply:
+display: grid;
+
+= To apply spacing we use:
+gap: 2px;
+
+= To set up the number of columns:
+Note: There are maximun 12 columns in a grid system.
+grid-template-columns: 25% 25% 25%;
+
+Note: The above code will divide our grid into 3 columns with their own sizes.
+- There is one "fr" unit for grid to divide space equally:
+    grid-template-columns: 1fr 1fr 1fr;
+    fr - fraction.
+    We can also have 
+    grid-template-columns: 1fr 1fr 2fr;
+- There is one repeat() for repetition:
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(2, 1fr) 2fr; 
+
+
+Note: When we define number of columns and there is more content then, grid will automatically create another row
+      to fit in the content.
+      - These rows are called implicit rows because they are created automatically.
+      - We need to try to avoid explicitly defining rows.
+
+
+
+
+CHILDREN PROPERTIES:
+
+
+
+
